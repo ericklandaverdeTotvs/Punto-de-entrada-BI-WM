@@ -55,20 +55,21 @@ If lIsDim
 		Indice 1 /* X5_FILIAL+X5_TABELA+X5_CHAVE */
 
 		nPCod:= aScan(aRet, {|x| AllTrim(x[1]) == "HJ8_CODIGO"})
-		//ConOut("nPCod: " + Alltrim(aRet[nPCod][2]))
+		ConOut("nPCod: " + Alltrim(aRet[nPCod][2]))
 		
 		cMarca := POSICIONE("SB1", 1, XFILIAL("SB1") + Padr( aRet[nPCod][2], nTamMarca), "B1_MARCA")
-		//ConOut("cMarca: " + Alltrim(cMarca))
+		ConOut("cMarca: " + Alltrim(cMarca))
 		cMarca := POSICIONE("SX5", 1, XFILIAL("SX5") + "KL" + Padr( cMarca, nTamChave), "X5_DESCRI")
-		//ConOut("cMarca: " + Alltrim(cMarca))
+		ConOut("cMarca: " + Alltrim(cMarca))
 
 		cTipo := POSICIONE("SB1", 1, XFILIAL("SB1") + Padr( aRet[nPCod][2], nTamTipoP), "B1_TIPO")
-		//ConOut("cTipo: " + Alltrim(cTipo))
+		ConOut("cTipo: " + Alltrim(cTipo))
 		cTipo := POSICIONE("SX5", 1, XFILIAL("SX5") + "02"+ Padr( cTipo, nTamChave), "X5_DESCRI")
-		//ConOut("cTipo: " + Alltrim(cTipo))
-		//ConOut("Entro a " + Alltrim(cAlias) + ", cMarca: " + Alltrim(cMarca) + ", cTipo: " + Alltrim(cTipo))
+		ConOut("cTipo: " + Alltrim(cTipo))
+		ConOut("Entro a " + Alltrim(cAlias) + ", cMarca: " + Alltrim(cMarca) + ", cTipo: " + Alltrim(cTipo))
 		
 	EndIf
+
 		aRet[nPLivre0][2] := Alltrim(cValToChar(cMarca))
 		aRet[nPLivre1][2] := Alltrim(cValToChar(cTipo))
 Else
@@ -76,7 +77,7 @@ Else
 		//ConOut("Entro a BIEXTGRV Hecho.")
 
 	//If  cAlias $ "HL0|HL1|HL2|HL3|HL4|HL5|HL6|HL7|HQ2|HQ3|HHA|HHB"
-	//If  cAlias $ "HL2|HL4"
+	//If  cAlias $ "HL2|HL4" 
 	If  cAlias $ "HL2"
 
 		/*Tabla SF2 Facturacion
@@ -141,7 +142,7 @@ Local cAlias := PARAMIXB[1] // Alias da tabela Fato / Dimensão que está sendo ex
 If  cAlias $ "HJ8|HL2|HL4"
 
 	aRet := {"SA1","SF2","SED","SB1","SC5","SC6"}
-	ConOut("Pasó el punto BIUSRTAB")
+	//ConOut("Pasó el punto BIUSRTAB")
 EndIf
 
 Return aRet

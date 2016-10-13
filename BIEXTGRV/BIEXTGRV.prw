@@ -55,18 +55,18 @@ If lIsDim
 		Indice 1 /* X5_FILIAL+X5_TABELA+X5_CHAVE */
 
 		nPCod:= aScan(aRet, {|x| AllTrim(x[1]) == "HJ8_CODIGO"})
-		ConOut("nPCod: " + Alltrim(aRet[nPCod][2]))
+		//ConOut("nPCod: " + Alltrim(aRet[nPCod][2]))
 		
 		cMarca := POSICIONE("SB1", 1, XFILIAL("SB1") + Padr( aRet[nPCod][2], nTamMarca), "B1_MARCA")
-		ConOut("cMarca: " + Alltrim(cMarca))
+		//ConOut("cMarca: " + Alltrim(cMarca))
 		cMarca := POSICIONE("SX5", 1, XFILIAL("SX5") + "KL" + Padr( cMarca, nTamChave), "X5_DESCRI")
-		ConOut("cMarca: " + Alltrim(cMarca))
+		//ConOut("cMarca: " + Alltrim(cMarca))
 
 		cTipo := POSICIONE("SB1", 1, XFILIAL("SB1") + Padr( aRet[nPCod][2], nTamTipoP), "B1_TIPO")
-		ConOut("cTipo: " + Alltrim(cTipo))
+		//ConOut("cTipo: " + Alltrim(cTipo))
 		cTipo := POSICIONE("SX5", 1, XFILIAL("SX5") + "02"+ Padr( cTipo, nTamChave), "X5_DESCRI")
-		ConOut("cTipo: " + Alltrim(cTipo))
-		ConOut("Entro a " + Alltrim(cAlias) + ", cMarca: " + Alltrim(cMarca) + ", cTipo: " + Alltrim(cTipo))
+		//ConOut("cTipo: " + Alltrim(cTipo))
+		//ConOut("Entro a " + Alltrim(cAlias) + ", cMarca: " + Alltrim(cMarca) + ", cTipo: " + Alltrim(cTipo))
 		
 	EndIf
 
@@ -100,7 +100,6 @@ Else
 		
 			cNaturez := POSICIONE("SED", 1, XFILIAL("SED") + cNaturez, "ED_DESCRIC")
 			//ConOut("cNaturez: " + Alltrim(cNaturez))
-
 			//ConOut("Entro a " + Alltrim(cAlias) + ", cNaturez: " + Alltrim(cNaturez))
 
 		/*
